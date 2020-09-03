@@ -60,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_PGUP,   XXXXXXX, TO(_PRO), XXXXXXX, KC_PGDOWN \
   ),
   [_PRO] = LAYOUT( /* procreate */
-    KC_LSHIFT, KC_U,    KC_F1,     KC_F2, \
-    KC_LGUI,  KC_SPACE,    KC_LALT,     A(LGUI(KC_Z)), \
-                                           S(LGUI(KC_Z)), \
+    KC_S, KC_V,    KC_B,     KC_E, \
+    KC_LGUI,  KC_SPACE,    LGUI(KC_0),     LGUI(KC_Z), \
+                                           LGUI(KC_U), \
     JP_LBRC,   XXXXXXX, TO(_FUNC), XXXXXXX, JP_RBRC \
   ),
   [_FUNC] = LAYOUT( /* func*/
