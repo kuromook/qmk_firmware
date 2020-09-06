@@ -49,8 +49,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_CSPIP] = LAYOUT( /* clip studio paint ipad*/
     KC_LSHIFT, KC_ESCAPE,    KC_F1,     KC_F2, \
-    KC_LGUI,  KC_SPACE,    KC_LALT,     A(LGUI(KC_Z)), \
-                                           S(LGUI(KC_Z)), \
+    KC_LGUI,  KC_SPACE,    KC_LALT,     LGUI(KC_Z), \
+                                           LGUI(KC_Z), \
     KC_PGUP,   XXXXXXX, TO(_PS), XXXXXXX, KC_PGDOWN \
   ),
   [_PS] = LAYOUT( /* photoshop */
