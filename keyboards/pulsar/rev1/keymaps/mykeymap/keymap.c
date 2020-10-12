@@ -36,6 +36,11 @@ enum {
   TD_ENTER_LED = 1,
 };
 
+enum custom_keycodes {
+  COMNUM = SAFE_RANGE,
+  ENDTRANSFORM
+};
+
 qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_C_V] = ACTION_TAP_DANCE_DOUBLE(KC_C, KC_V),
 };
@@ -48,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_PGUP,   XXXXXXX, TO(_CSPIP), XXXXXXX, KC_PGDOWN \
   ),
   [_CSPIP] = LAYOUT( /* clip studio paint ipad*/
-    KC_LSHIFT, KC_ESCAPE,    KC_F1,     KC_F2, \
+    KC_LSHIFT, KC_P,    KC_F1,     KC_F2, \
     KC_LGUI,  KC_SPACE,    KC_LALT,     LGUI(KC_Z), \
-                                           LGUI(KC_Z), \
+                                           ENDTRANSFORM, \
     KC_PGUP,   XXXXXXX, TO(_PS), XXXXXXX, KC_PGDOWN \
   ),
   [_PS] = LAYOUT( /* photoshop */
@@ -88,6 +93,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         register_code(KC_LALT);
         return false;
       }
+      break;
+    case ENDTRANSFORM:
+      if(record->event.pressed){
+        SEND_STRING(SS_TAP(X_ENTER) SS_DELAY(1000) SS_LGUI("d") "p");
+      }
+      break;
   }
   return true;
 }

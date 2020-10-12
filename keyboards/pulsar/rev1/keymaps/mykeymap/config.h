@@ -15,5 +15,6 @@
  */
 
 #pragma once
-
+#define PERMISSIVE_HOLD
+#define RETRO_TAPPING
 // place overrides here
