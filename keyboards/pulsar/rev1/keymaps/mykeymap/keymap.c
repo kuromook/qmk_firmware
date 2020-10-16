@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSHIFT, KC_P,    KC_F1,     KC_F2, \
     KC_LGUI,  KC_SPACE,    KC_LALT,     LGUI(KC_Z), \
                                            ENDTRANSFORM, \
-    KC_PGUP,   XXXXXXX, TO(_PS), XXXXXXX, KC_PGDOWN \
+    KC_PGUP,   KC_LBRACKET, TO(_PS), KC_RBRACKET, KC_PGDOWN \
   ),
   [_PS] = LAYOUT( /* photoshop */
     KC_LSHIFT, A(KC_BTN2),    A(S(KC_BTN2)),     KC_F1, \
@@ -72,8 +72,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_FUNC] = LAYOUT( /* func*/
     KC_F13, KC_F14,    KC_F15,     KC_F19, \
-    KC_F16,  KC_F17,    KC_F18,     KC_F20, \
-                                           KC_F21, \
+    KC_F16,  KC_F17,    KC_F18,     KC_TAB, \
+                                           S(KC_TAB), \
     JP_LBRC,   XXXXXXX, TO(_LED), XXXXXXX, JP_RBRC \
   ),
   [_LED] = LAYOUT( /* Base */
@@ -145,7 +145,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
       } else if (get_mods() & MOD_LSFT) {
         tap_code(KC_END);
       } else {
-        tap_code(KC_MS_WH_DOWN);
+        tap_code(KC_LBRACKET);
       }
     } else {
       if (get_mods() & MOD_LCTL) {
@@ -153,7 +153,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
       } else if (get_mods() & MOD_LSFT) {
         tap_code(KC_HOME);
       } else {
-        tap_code(KC_MS_WH_UP);
+        tap_code(KC_RBRACKET);
       }
     }
   }
